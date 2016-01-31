@@ -1,0 +1,64 @@
+<mvc:View
+    controllerName="sap.ui.germanArticles.controller.App"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+		displayBlock="true">
+    <App class="gaGame">
+      <pages>
+        <Page
+            title="{i18n>appTitle}"
+            class="sapUiContentPadding"
+            showNavButton="false" >
+            <headerContent>
+              <Button
+                icon="sap-icon://badge"
+                text="{i18n>newGameBtnLabel}"
+                press="onNewGame" />
+            </headerContent>
+            <content>
+                <FlexBox
+                  id="gaNounsProgress"
+                  height="5%"
+                  alignItems="Top"
+                  justifyContent="Center">
+                  <items>
+                      <!-- items created on run time based on the amount of words -->
+                  </items>
+                </FlexBox>
+
+                <FlexBox
+                  height="35%"
+                  alignItems="End"
+                  justifyContent="Center">
+                  <items>
+                    <Text text="{/rightArticle}" class="gaNounArticle" id="gaNounArticle" />
+                  </items>
+                </FlexBox>
+
+                <FlexBox
+                  height="40%"
+                  alignItems="Top"
+                  justifyContent="Center">
+                  <items>
+                    <Text text="{/noun/word}" class="gaCurrentWord" />
+                  </items>
+                </FlexBox>
+
+                <FlexBox
+                  id="gaArticleButtons"
+                  height="15%"
+                  alignItems="Start"
+                  justifyContent="Center"
+                  class="gaArticleButtons">
+                  <items>
+                      <!-- buttons here are created on run time by controller -->
+                  </items>
+                </FlexBox>
+            </content>
+        </Page>
+      </pages>
+   </App>
+</mvc:View>
