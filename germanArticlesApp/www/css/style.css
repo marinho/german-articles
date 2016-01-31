@@ -1,0 +1,40 @@
+.gaGame .gaNounsProgressItem {
+    border: 1px gray dotted;
+    padding: 0.4em;
+    border-radius: 1em;
+}
+
+.gaGame .gaNounsProgressItem.right {
+    background: green;
+}
+
+.gaGame .gaNounsProgressItem.wrong {
+    background: red;
+}
+
+.gaGame .gaNounArticle {
+    font-size: 1.3em;
+    padding: 0.2em;
+    border-radius: 0.5em;
+}
+
+.gaGame .gaNounArticle.right {
+    background-color: green;
+    color: white;
+}
+
+.gaGame .gaNounArticle.wrong {
+    background-color: red;
+    color: white;
+}
+
+.gaGame .gaNounArticle {
+}
+
+.gaGame .gaCurrentWord {
+    font-size: 2.5em;
+}
+
+.gaGame .gaArticleButtons .sapMBtnInner {
+    font-size: 1.5em;
+}
