@@ -45,8 +45,9 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
         */
-        console.log('Received Event: ' + id);
 
+        console.log('Received Event: ' + id);
+        
         // Tell UI5 where to find application content
         sap.ui.localResources("controller");
         sap.ui.localResources("view");
