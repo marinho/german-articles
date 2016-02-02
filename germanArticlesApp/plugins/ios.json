@@ -12,6 +12,9 @@
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
+        },
+        "cordova-plugin-websql": {
+            "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
         }
     },
     "dependent_plugins": {}

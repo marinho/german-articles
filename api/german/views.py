@@ -13,11 +13,12 @@ def nouns_json(request):
 
     since = request.GET.get('since', None)
     if since:
-        since = datetime.datetime.strptime(since, '%Y-%m-%dT%H:%M:%S')
+        since = datetime.datetime.strptime(since[:19], '%Y-%m-%dT%H:%M:%S')
         nouns = nouns.filter(latest_update__gte=since)
 
     ret = {
         'Nouns': [{
+            'id': noun.id,
             'word': noun.word,
             'gender': noun.gender,
             'details': noun.details,
@@ -34,3 +35,11 @@ def index_html(request):
     content = fp.read()
     fp.close()
     return HttpResponse(content)
+
+
+def offline_appcache(request):
+    path = os.path.join(settings.WEBAPP_DIR, 'offline.appcache')
+    fp = file(path)
+    content = fp.read()
+    fp.close()
+    return HttpResponse(content, content_type='text/cache-manifest')

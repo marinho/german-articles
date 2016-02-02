@@ -6,6 +6,13 @@ sap.ui.define([
 
     return Controller.extend("sap.ui.germanArticles.controller.App", {
 
+        _localDatabaseOpts: {
+            name: "local.db",
+            size: 5 * 1024 * 1024
+        },
+
+        _latestNounsUpdate: localStorage.latestNounsUpdate || "",
+
         _nounsPerGame: 10,
 
         _articles: {
@@ -39,11 +46,60 @@ sap.ui.define([
             var oModel = new JSONModel({});
             view.setModel(oModel);
 
+            // Using local database to load nouns from
+            self._prepareLocalDB();
+
             // set nouns model - local
             //var sUrl = 'http://localhost:8000/nouns.json';
             var sUrl = 'nouns.json';
             var oNounsModel = new JSONModel(sUrl);
             view.setModel(oNounsModel, "allNouns");
+        },
+
+        _prepareLocalDB: function () {
+            var self = this;
+
+            var db = openDatabase(self._localDatabaseOpts.name, "", "Nouns database", self._localDatabaseOpts.size, function() {
+                console.log('db successfully opened or created');
+            });
+
+            db.transaction(function (tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS nouns (id, word, gender, details, latest_update)",
+                    [], onSuccess, onError);
+                //tx.executeSql("INSERT INTO todo(todo, added_on) VALUES (?,?)", ['my todo item', new Date().toUTCString()], onSuccess, onError);
+
+                // Get updated nouns from remote server
+                var sUrl = "http://german.alatazan.com/nouns.json?since=" + self._latestNounsUpdate;
+                console.log('-----------------------'); // XXX
+                var oResponse = jQuery.sap.ajax({ url: sUrl });
+                /*
+                try {  
+                    if (oResponse.success) {  
+                        console.log(oResponse); // XXX
+                    }
+                } catch (e) {
+                     jQuery.sap.log.error("Error when parsing the JSON configuration content from " + sUrl + " : " + e);
+                }
+                */
+                /*
+                var newNounsModel = new JSONModel(sUrl);
+                newNounsModel.attachRequestCompleted(function() {
+                    console.log(newNounsModel.getData());
+                });
+                */
+                console.log(1231231231); // XXX
+                // Save new nouns to database
+
+                // Random selection
+            });
+
+            var onSuccess = function (transaction, resultSet) {
+                console.log('Query completed: ' + JSON.stringify(resultSet));
+            };
+
+            var onError = function (transaction, error) {
+                console.log('Query failed: ' + error.message);
+            };
         },
 
         onNewGame: function () {

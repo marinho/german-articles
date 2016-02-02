@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# 2016-02-03:v1
+
+CACHE:
+/index.html
+/Component.js
+/manifest.json
+/nouns.json
+/controller/App.controller.js
+/css/style.css
+/i18n/i18n.properties
+/view/App.view.xml
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
