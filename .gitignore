@@ -4,5 +4,5 @@ env/
 *.pyc
 db.sqlite3
 npm-debug.log
-api/local_settings.py
+local_settings.py
 api/static/
