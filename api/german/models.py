@@ -8,6 +8,7 @@ class Noun(models.Model):
         unique_together = (
                 ('word', 'gender'),
                 )
+        ordering = ('word', 'gender')
 
     GENDERS = (
         ('m', 'Maskulin'),
