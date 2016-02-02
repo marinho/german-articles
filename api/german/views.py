@@ -20,7 +20,8 @@ def nouns_json(request):
         'Nouns': [{
             'word': noun.word,
             'gender': noun.gender,
-            'details': noun.details
+            'details': noun.details,
+            'latest_update': noun.latest_update.strftime('%Y-%m-%dT%H:%M:%SZ')
         } for noun in nouns]
     }
     return HttpResponse(json.dumps(ret),
