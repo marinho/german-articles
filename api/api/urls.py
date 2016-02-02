@@ -10,7 +10,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', index_html),
     url(r'^nouns.json', nouns_json),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin', admin.site.urls),
     url(r'^(?P<path>.*)$', serve, {
         'document_root': settings.WEBAPP_DIR
     })
