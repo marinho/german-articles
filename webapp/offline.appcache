@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-02-03:v1
+# 2016-02-03:v2
 
 CACHE:
 /index.html
@@ -9,7 +9,18 @@ CACHE:
 /css/style.css
 /i18n/i18n.properties
 /view/App.view.xml
-# /nouns.json
+/nouns.json
+# SAP OpenUI5
+/resources/sap/m/library-preload.json
+/resources/sap/m/messagebundle_en_US.properties
+/resources/sap/m/messagebundle_en_US.properties
+/resources/sap/m/themes/sap_bluecrystal/library.css
+/resources/sap-ui-core.js
+/resources/sap/ui/core/themes/base/fonts/SAP-icons.ttf
+/resources/sap/ui/core/messagebundle_en_US.properties
+/resources/sap/ui/core/themes/sap_bluecrystal/library.css
+/resources/sap/ui/core/library-preload.json
+/resources/sap/ui/thirdparty/jquery-mobile-custom.js
 
 NETWORK:
 *
