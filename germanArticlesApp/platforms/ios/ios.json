@@ -18,13 +18,13 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
         },
         "cordova-plugin-websql": {
+            "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.alatazan.germanArticlesApp"
         }
     },
